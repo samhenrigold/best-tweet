@@ -17,5 +17,10 @@
     "tslib": "^2.6.2",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
+  },
+  "dependencies": {
+    "@netlify/functions": "^2.4.1",
+    "@supabase/supabase-js": "^2.39.1",
+    "dotenv": "^16.3.1"
   }
 }

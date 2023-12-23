@@ -1,9 +1,7 @@
 [functions]
   directory = "/netlify/functions"
 [dev]
-  framework = "svelte"
-  command = "npm run start"
-  port = 8885
+  command = "npm run dev"
 [build]
   publish = "dist"
   command = "npm run build"
