@@ -26,11 +26,16 @@
 	}
 
 	.tweet__text {
-		@apply text-lg mb-1.5;
+		@apply text-base lg:text-lg mb-1.5 px-4 whitespace-pre-line;
 	}
 
+    .tweet__media {
+        @apply flex overflow-x-scroll gap-2 ps-4;
+        scroll-snap-type: x mandatory;
+    }
+
 	.tweet__media .tweet__media-image {
-		@apply rounded-md border border-gray-200 max-h-[500px] object-cover;
+		@apply max-h-64 md:max-h-[430px] object-contain border border-black border-opacity-15 rounded-md;
 	}
 </style>
 

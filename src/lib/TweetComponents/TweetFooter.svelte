@@ -25,7 +25,7 @@
 
 <style lang="postcss">
 	.tweet__footer {
-		@apply text-sm text-gray-500;
+		@apply text-sm text-gray-500 px-4;
 	}
 
     .tweet__engagement {

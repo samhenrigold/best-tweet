@@ -20,7 +20,11 @@
 
 <style lang="postcss">
 	.tweet__header {
-		@apply flex items-center text-sm gap-3;
+		@apply flex items-center text-sm gap-3 px-4;
+	}
+
+	.tweet__user-info {
+		@apply flex-1 overflow-hidden whitespace-nowrap overflow-ellipsis;
 	}
 
 	.tweet__user-handle {

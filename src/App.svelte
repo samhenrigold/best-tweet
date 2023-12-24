@@ -41,20 +41,24 @@
 	});
 </script>
 
+<header>
+	<h1>The Best Tweet</h1>
+</header>
 <main>
 	{#if currentMatchup}
-		<form on:submit={handleVote}>
+		<form on:submit={handleVote} on:change={handleVote}>
 			<div>
 				<label>
-					<Tweet tweet={currentMatchup.tweet_1} />
+					<Tweet tweet={currentMatchup.tweet_1} selected={selectedTweetId === currentMatchup.tweet_1.tweet_id_str} />
 					<input
 						type="radio"
 						bind:group={selectedTweetId}
 						value={currentMatchup.tweet_1.tweet_id_str}
 					/>
 				</label>
+				<span class="vs" aria-label="versus">VS</span>
 				<label>
-					<Tweet tweet={currentMatchup.tweet_2} />
+					<Tweet tweet={currentMatchup.tweet_2} selected={selectedTweetId === currentMatchup.tweet_2.tweet_id_str} />
 					<input
 						type="radio"
 						bind:group={selectedTweetId}
@@ -62,17 +66,29 @@
 					/>
 				</label>
 			</div>
-			<button type="submit" disabled={!selectedTweetId}>Vote</button>
 		</form>
 	{/if}
 </main>
 
 <style lang="postcss">
-	main, form {
-		@apply h-full;
+
+	header {
+		@apply text-6xl lg:text-9xl font-black text-gray-500 italic text-center uppercase;
+	
 	}
+
 	form div {
-		@apply flex items-center justify-evenly;
+		@apply flex flex-col justify-center items-center gap-4 lg:flex-row;
+	}
+
+	.vs {
+		@apply text-4xl font-bold text-gray-500 italic tracking-wide;
+		/* small caps */
+		font-variant: all-small-caps;
+	}
+
+	input[type="radio"] {
+		@apply sr-only;
 	}
 
 	button {

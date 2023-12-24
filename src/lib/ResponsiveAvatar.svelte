@@ -15,8 +15,7 @@
 </picture>
 
 <style>
-    /* Make sure we're not stretching the image — fill to frame */
     img {
-        @apply w-10 h-10 rounded-full bg-gray-400 border border-gray-300;
+        @apply w-10 h-10 flex-shrink-0 rounded-full bg-gray-400 border border-gray-300;
     }
 </style>
