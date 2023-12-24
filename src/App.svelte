@@ -10,18 +10,10 @@
 		
 		let getMatchupsEndpoint = "https://api.thebesttweet.com/get-matchups";
 		
-		// check if the current page address is localhost. if so, append debug=1 to the query string
-		if (window.location.hostname === "localhost") {
-			getMatchupsEndpoint += "?debug=1";
-		}
-		
 		const response = await fetch(getMatchupsEndpoint);
 		const matchups = await response.json();
-		// Check if the response is wrapped in an array. If so, unwrap it.
-		if (Array.isArray(matchups)) {
-			currentMatchup = matchups[0];
-		}
-		currentMatchup = matchups;
+
+		currentMatchup = matchups[0];
 		selectedTweetId = ""; // Reset selected tweet
 	}
 
@@ -80,7 +72,7 @@
 		@apply h-full;
 	}
 	form div {
-		@apply flex items-center justify-evenly h-auto md:h-full md:flex-row flex-col;
+		@apply flex items-center justify-evenly;
 	}
 
 	button {

@@ -30,7 +30,7 @@
 	}
 
 	.tweet__media .tweet__media-image {
-		@apply rounded-md border border-gray-200;
+		@apply rounded-md border border-gray-200 max-h-[500px] object-cover;
 	}
 </style>
 
