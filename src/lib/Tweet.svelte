@@ -1,71 +1,79 @@
 <script lang="ts">
-	import type { TweetData } from "./TweetData";
+    import ResponsiveAvatar from "./ResponsiveAvatar.svelte";
+    import type { TweetData } from "./TweetData";
+    import { cleanFullText, formatTweetDate } from "./TweetCardUtils";
+    import Icon from "./Icon.svelte";
 
-	// The tweet data is passed as a prop to this component
-	export let tweet: TweetData;
-
-	// Optional: Function to format the date in a more readable format
-	function formatDate(dateString: string): string {
-		const options: Intl.DateTimeFormatOptions = {
-			hour: "numeric",
-			minute: "numeric",
-			month: "short",
-			day: "numeric",
-			year: "numeric",
-		};
-		return new Date(dateString).toLocaleString(undefined, options);
-	}
+    // The tweet data is passed as a prop to this component
+    export let tweet: TweetData;
 </script>
 
-<div class="tweet">
-	<img
-		class="profile-image"
-		src={tweet.users.profile_image_url_https}
-		alt={tweet.users.name}
-	/>
-	<div class="tweet-content">
-		<div class="tweet-header">
-			{tweet.users.name} (@{tweet.users.screen_name})
-		</div>
-		<div class="tweet-text">{tweet.full_text}</div>
-		<div class="tweet-info">
-			{formatDate(tweet.created_at)} · Retweets: {tweet.retweet_count} · Likes:
-			{tweet.favorite_count}
-		</div>
-	</div>
-</div>
+<blockquote class="tweet">
+    <header class="tweet__header">
+        <ResponsiveAvatar
+            src={tweet.users.profile_image_url_https}
+            name={tweet.users.name}
+        />
+        <p class="tweet__user-info">
+            <strong class="tweet__user-name">{tweet.users.name}</strong>
+            <br>
+            <span class="tweet__user-handle">@{tweet.users.screen_name}</span>
+        </p>
+    </header>
+
+    <main class="tweet__content">
+        <p class="tweet__text">{cleanFullText(tweet.full_text)}</p>
+        {#if tweet.tweet_media.length > 0}
+            <div class="tweet__media">
+                {#each tweet.tweet_media as media}
+                    <img
+                        class="tweet__media-image"
+                        src={media.media_url_https}
+                        alt={media.alt_text ?? ""}
+                        width="100%"
+                    />
+                {/each}
+            </div>
+        {/if}
+    </main>
+
+    <footer class="tweet__footer">
+        <div class="tweet__engagement">
+            <span class="tweet__retweets">
+                <Icon name="repeat" />
+                {tweet.retweet_count}
+            </span>
+            <span class="tweet__likes">
+                <Icon name="favorite" />
+                {tweet.favorite_count}
+            </span>
+        </div>
+        <p class="tweet__date">
+            {formatTweetDate(tweet.created_at)}
+        </p>
+    </footer>
+</blockquote>
 
 <style>
-	.tweet {
-		border: 1px solid #ccc;
-		padding: 10px;
-		margin: 10px 0;
-		border-radius: 8px;
-		display: flex;
-		align-items: flex-start;
-	}
+    .tweet {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 8px;
+        max-width: 45ch;
+    }
 
-	.profile-image {
-		width: 50px;
-		height: 50px;
-		border-radius: 50%;
-		margin-right: 10px;
-	}
+    .tweet__header {
+        display: flex;
+        align-items: center;
+    }
 
-	.tweet-content {
-		flex-grow: 1;
-	}
+    .tweet__user-info {
+        display: inline-block;
+        margin-inline-start: 1rem;
+    }
 
-	.tweet-header {
-		font-weight: bold;
-	}
-
-	.tweet-text {
-		margin: 5px 0;
-	}
-
-	.tweet-info {
-		color: #555;
-		font-size: 0.8em;
-	}
+    .tweet__media .tweet__media-image {
+        display: block;
+    }
 </style>
