@@ -12,21 +12,21 @@ export interface Database {
       matchups: {
         Row: {
           created_at: string | null
-          matchup_id: number
+          matchup_id: string
           requested_from: unknown | null
           tweet_id1: number | null
           tweet_id2: number | null
         }
         Insert: {
           created_at?: string | null
-          matchup_id?: number
+          matchup_id?: string
           requested_from?: unknown | null
           tweet_id1?: number | null
           tweet_id2?: number | null
         }
         Update: {
           created_at?: string | null
-          matchup_id?: number
+          matchup_id?: string
           requested_from?: unknown | null
           tweet_id1?: number | null
           tweet_id2?: number | null
@@ -119,6 +119,13 @@ export interface Database {
         }
         Relationships: [
           {
+            foreignKeyName: "tweets_in_reply_to_status_id_fkey"
+            columns: ["in_reply_to_status_id"]
+            isOneToOne: false
+            referencedRelation: "tweets"
+            referencedColumns: ["tweet_id"]
+          },
+          {
             foreignKeyName: "tweets_user_id_fkey"
             columns: ["user_id"]
             isOneToOne: false
@@ -153,21 +160,21 @@ export interface Database {
       }
       votes: {
         Row: {
-          matchup_id: number
+          matchup_id: string
           selected_tweet_id: number
           user_ip: unknown | null
           vote_id: number
           voted_at: string
         }
         Insert: {
-          matchup_id: number
+          matchup_id: string
           selected_tweet_id: number
           user_ip?: unknown | null
           vote_id?: number
           voted_at?: string
         }
         Update: {
-          matchup_id?: number
+          matchup_id?: string
           selected_tweet_id?: number
           user_ip?: unknown | null
           vote_id?: number
@@ -195,19 +202,7 @@ export interface Database {
       [_ in never]: never
     }
     Functions: {
-      get_random_pairing: {
-        Args: Record<PropertyKey, never>
-        Returns: {
-          created_at: string | null
-          favorite_count: number | null
-          full_text: string | null
-          in_reply_to_status_id: number | null
-          lang: string | null
-          retweet_count: number | null
-          tweet_id: number
-          user_id: number | null
-        }[]
-      }
+      [_ in never]: never
     }
     Enums: {
       media_type: "photo" | "video"

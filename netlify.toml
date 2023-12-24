@@ -2,6 +2,7 @@
   directory = "/netlify/functions"
 [dev]
   command = "npm run dev"
+  autoLaunch = false
 [build]
   publish = "dist"
   command = "npm run build"
