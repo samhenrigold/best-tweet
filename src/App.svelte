@@ -47,18 +47,16 @@
 	{#if currentMatchup}
 		<form on:submit={handleVote}>
 			<div>
-				<Tweet tweet={currentMatchup.tweet_1} />
 				<label>
+					<Tweet tweet={currentMatchup.tweet_1} />
 					<input
 						type="radio"
 						bind:group={selectedTweetId}
 						value={currentMatchup.tweet_1.tweet_id_str}
 					/>
 				</label>
-			</div>
-			<div>
-				<Tweet tweet={currentMatchup.tweet_2} />
 				<label>
+					<Tweet tweet={currentMatchup.tweet_2} />
 					<input
 						type="radio"
 						bind:group={selectedTweetId}
@@ -70,3 +68,20 @@
 		</form>
 	{/if}
 </main>
+
+<style lang="postcss">
+	main {
+		@apply h-full;
+	}
+	form div {
+		@apply flex items-center justify-evenly h-full md:flex-row flex-col;
+	}
+
+	button {
+		@apply px-4 py-2 text-white bg-blue-500 rounded-md shadow-sm;
+	}
+
+	button:disabled {
+		@apply bg-gray-300;
+	}
+</style>

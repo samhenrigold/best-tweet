@@ -3,3 +3,9 @@
 </script>
 
 <span class="material-symbols-outlined">{name}</span>
+
+<style>
+    .material-symbols-outlined {
+		@apply text-base;
+	}
+</style>
