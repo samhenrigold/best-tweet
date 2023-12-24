@@ -7,9 +7,15 @@
 	let selectedTweetId: string;
 
 	async function fetchMatchup() {
-		const response = await fetch(
-			"https://api.thebesttweet.com/get-matchups?debug=1"
-		);
+		
+		let getMatchupsEndpoint = "https://api.thebesttweet.com/get-matchups";
+		
+		// check if the current page address is localhost. if so, append debug=1 to the query string
+		if (window.location.hostname === "localhost") {
+			getMatchupsEndpoint += "?debug=1";
+		}
+		
+		const response = await fetch(getMatchupsEndpoint);
 		const matchups = await response.json();
 		// Check if the response is wrapped in an array. If so, unwrap it.
 		if (Array.isArray(matchups)) {
