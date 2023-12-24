@@ -22,19 +22,15 @@
 
 <style lang="postcss">
 	.tweet__content {
-		@apply my-4;
+		@apply my-3;
 	}
 
 	.tweet__text {
-		@apply text-lg mb-2;
+		@apply text-lg mb-1.5;
 	}
 
 	.tweet__media .tweet__media-image {
-		display: block;
-	}
-
-	.tweet__footer {
-		@apply text-sm text-gray-500;
+		@apply rounded-md border border-gray-200;
 	}
 </style>
 

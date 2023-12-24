@@ -6,6 +6,6 @@
 
 <style>
     .material-symbols-outlined {
-		@apply text-base;
+		@apply text-base translate-y-[0.175em];
 	}
 </style>

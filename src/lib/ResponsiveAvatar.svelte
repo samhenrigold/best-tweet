@@ -17,10 +17,6 @@
 <style>
     /* Make sure we're not stretching the image — fill to frame */
     img {
-        width: 40pt;
-        height: 40pt;
-        border-radius: 50%;
-        background-color: lightgray;
-        border: 1pt solid silver;
+        @apply w-10 h-10 rounded-full bg-gray-400 border border-gray-300;
     }
 </style>

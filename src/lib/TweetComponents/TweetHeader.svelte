@@ -20,12 +20,10 @@
 
 <style lang="postcss">
 	.tweet__header {
-		display: flex;
-		align-items: center;
+		@apply flex items-center text-sm gap-3;
 	}
 
-	.tweet__user-info {
-		display: inline-block;
-		margin-inline-start: 1rem;
+	.tweet__user-handle {
+		@apply text-gray-600;
 	}
 </style>

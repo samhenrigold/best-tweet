@@ -19,6 +19,6 @@
 
 <style lang="postcss">
 	.tweet {
-		@apply max-w-md border border-gray-300 cursor-pointer shadow-sm bg-slate-50 p-4 rounded-md;
+		@apply max-w-md border border-gray-200 cursor-pointer p-4 rounded-lg;
 	}
 </style>

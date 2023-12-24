@@ -70,11 +70,11 @@
 </main>
 
 <style lang="postcss">
-	main {
+	main, form {
 		@apply h-full;
 	}
 	form div {
-		@apply flex items-center justify-evenly h-full md:flex-row flex-col;
+		@apply flex items-center justify-evenly h-auto md:h-full md:flex-row flex-col;
 	}
 
 	button {

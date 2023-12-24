@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { TweetData } from "../TweetData";
-    import { formatTweetDate } from "../TweetCardUtils";
+    import { formatTweetDate, fuzzyNumber } from "../TweetCardUtils";
     import Icon from "../Icon.svelte";
 
     // The tweet data is passed as a prop to this component
@@ -11,11 +11,11 @@
         <div class="tweet__engagement">
             <span class="tweet__retweets">
                 <Icon name="repeat" />
-                {tweet.retweet_count}
+                {fuzzyNumber(tweet.retweet_count)}
             </span>
             <span class="tweet__likes">
                 <Icon name="favorite" />
-                {tweet.favorite_count}
+                {fuzzyNumber(tweet.favorite_count)}
             </span>
         </div>
         <p class="tweet__date">
@@ -27,5 +27,13 @@
 	.tweet__footer {
 		@apply text-sm text-gray-500;
 	}
+
+    .tweet__engagement {
+        @apply inline-flex items-center gap-3;
+    }
+
+    .tweet__date {
+        @apply inline-block;
+    }
 </style>
 
