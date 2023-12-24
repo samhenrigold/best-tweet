@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import Tweet from './lib/Tweet.svelte';
-  import type { Matchup, VoteRequestBody } from './types';
+  import type { Matchup, VoteRequestBody } from './lib/EndpointTypes';
 
   let currentMatchup: Matchup;
   let selectedTweetId: string;
