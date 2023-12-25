@@ -18,6 +18,12 @@ export function cleanFullText(fullText: string): string {
     return fullText;
 }
 
+export function turnUrlsIntoHTMLLinks(fullText: string): string {
+    // Turn URLs into HTML links
+    fullText = fullText.replace(/(https?:\/\/[^\s]+)/g, "<a href='$1' target='_blank'>$1</a>");
+    return fullText;
+}
+
 // Format numbers as fuzzy numbers (17932 -> 17.9K in en-US or 17,9k in fr-FR)
 
 const numberFormatter = new Intl.NumberFormat(undefined, {

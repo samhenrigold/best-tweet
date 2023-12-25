@@ -6,6 +6,6 @@ html, body, #app {
     height: 100vh;
 }
 
-a:hover {
-    @apply text-blue-500 underline;
+a {
+    @apply text-blue-500 hover:text-blue-700 hover:underline;
 }

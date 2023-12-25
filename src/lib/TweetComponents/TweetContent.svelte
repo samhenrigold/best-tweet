@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { cleanFullText } from "../TweetCardUtils";
+	import { turnUrlsIntoHTMLLinks } from "../TweetCardUtils";
 	import type { TweetData } from "../TweetData";
 	export let tweet: TweetData;
 </script>
 
 <main class="tweet__content">
-	<p class="tweet__text">{@html cleanFullText(tweet.full_text)}</p>
+	<p class="tweet__text">{@html turnUrlsIntoHTMLLinks(tweet.full_text)}</p>
 	{#if tweet.tweet_media.length > 0}
 		<div class="tweet__media">
 			{#each tweet.tweet_media as media}

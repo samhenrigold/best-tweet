@@ -44,13 +44,13 @@
 	});
 </script>
 
-<header>
-	<h1>The Best Tweet</h1>
-	<p>We are not trying to find the most popular tweet. We are just trying to find, objectively, the <strong>best tweet of all time</strong>.</p>
-	<p>Tweets collected by <a href="https://www.theverge.com/c/features/23928461/best-tweets-archive-twitter-x-funny">The Verge</a>.</p>
-</header>
-<main>
-	{#if currentMatchup}
+<div class="flex flex-col min-h-screen">
+	<header>
+		<h1>The Best Tweet</h1>
+		<p>We are not trying to find the most popular tweet. We are just trying to find, objectively, the <strong>best tweet of all time</strong>.</p>
+	</header>
+    <main class="flex-grow">
+		{#if currentMatchup}
 		<form on:submit={handleVote} on:change={handleVote}>
 			<div>
 				<label>
@@ -73,26 +73,35 @@
 			</div>
 		</form>
 	{/if}
-</main>
+	</main>
+    <footer>
+		<p>Tweets collected by <a href="https://www.theverge.com/c/features/23928461/best-tweets-archive-twitter-x-funny">The Verge</a>. At the end of this experiment, on January 1, 2024, I will redirect this domain to the winning tweet.</p>
+		<p>A web experiment conducted by <a href="https://samhenri.gold" target="_blank">Sam Henri Gold</a>.</p>
+	</footer>
+</div>
 
 <style lang="postcss">
 
-	header {
-		@apply text-gray-500 text-center mb-8 text-lg;
+	div header {
+		@apply text-blue-500 mb-8 md:text-lg text-center;
 	
 	}
 	
 	h1 {
-		@apply text-6xl lg:text-9xl font-black italic uppercase;
+		@apply text-4xl md:text-6xl lg:text-9xl font-black italic uppercase;
 	
 	}
 
 	header p {
-		@apply max-w-[50ch] mx-auto;
+		@apply max-w-[50ch] mx-auto text-gray-500;
+	}
+
+	footer {
+		@apply text-sm text-gray-500 mt-auto p-8;
 	}
 
 	form div {
-		@apply flex flex-col justify-center items-center gap-4 lg:gap-10 lg:flex-row pb-16;
+		@apply flex flex-col justify-center items-center gap-4 lg:gap-10 lg:flex-row pb-16 h-full;
 	}
 
 	.vs {
