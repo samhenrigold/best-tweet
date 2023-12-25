@@ -18,7 +18,7 @@
                 {fuzzyNumber(tweet.favorite_count)}
             </span>
         </div>
-        <a class="tweet__date" href="https://twitter.com/i/web/status/{tweet.tweet_id_str}">
+        <a class="tweet__date" href="https://twitter.com/i/web/status/{tweet.tweet_id_str}" target="_blank">
             {formatTweetDate(tweet.created_at)}
         </a>
     </footer>
