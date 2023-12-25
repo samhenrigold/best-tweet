@@ -50,7 +50,7 @@
 		<p>We are not trying to find the most popular tweet. We are just trying to find, objectively, the <strong>best tweet of all time</strong>.</p>
 	</header>
     <main class="flex-grow">
-		{#if currentMatchup}
+	{#if currentMatchup}
 		<form on:submit={handleVote} on:change={handleVote}>
 			<div>
 				<label>
@@ -71,6 +71,7 @@
 					/>
 				</label>
 			</div>
+			<button type="button" on:click={() => fetchMatchup()}>Both suck <span class="material-symbols-outlined">double_arrow</span></button>
 		</form>
 	{/if}
 	</main>
@@ -95,6 +96,14 @@
 
 	header p {
 		@apply max-w-[50ch] mx-auto text-gray-500;
+	}
+
+	form {
+		@apply flex flex-col;
+	}
+
+	form button {
+		@apply self-center px-5 font-bold text-yellow-950 bg-yellow-500 rounded-xl shadow-sm flex items-end;
 	}
 
 	footer {

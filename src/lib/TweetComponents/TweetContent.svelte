@@ -37,6 +37,6 @@
 	}
 
 	.tweet__media .tweet__media-image {
-		@apply h-64 md:h-[430px] object-cover border border-black border-opacity-15 rounded-md;
+		@apply max-h-[430px] object-cover border border-black border-opacity-15 rounded-md;
 	}
 </style>
