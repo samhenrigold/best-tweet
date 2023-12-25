@@ -2,6 +2,11 @@
 	import { turnUrlsIntoHTMLLinks } from "../TweetCardUtils";
 	import type { TweetData } from "../TweetData";
 	export let tweet: TweetData;
+
+	let mediaIsVideo = (media: TweetData["tweet_media"][0]) => {
+		return media.type === "video" || media.type === "animated_gif";
+	};
+
 </script>
 
 <main class="tweet__content">
@@ -9,6 +14,15 @@
 	{#if tweet.tweet_media.length > 0}
 		<div class="tweet__media">
 			{#each tweet.tweet_media as media}
+				{#if mediaIsVideo(media)}
+					<!-- svelte-ignore a11y-media-has-caption -->
+					<video
+						class="tweet__media-image"
+						src={media.media_url_https}
+						controls
+						width="100%"
+					></video>
+				{:else}
 				<a href={media.media_url_https} target="_blank">
 					<img
 						class="tweet__media-image"
@@ -17,6 +31,7 @@
 						width="100%"
 					/>
 				</a>
+				{/if}
 			{/each}
 		</div>
 	{/if}
