@@ -34,6 +34,9 @@
 		});
 
 		fetchMatchup();
+
+		// scroll to very top of the page
+		window.scrollTo(0, 0);
 	}
 
 	onMount(() => {
@@ -43,6 +46,8 @@
 
 <header>
 	<h1>The Best Tweet</h1>
+	<p>We are not trying to find the most popular tweet. We are just trying to find, objectively, the <strong>best tweet of all time</strong>.</p>
+	<p>Tweets collected by <a href="https://www.theverge.com/c/features/23928461/best-tweets-archive-twitter-x-funny">The Verge</a>.</p>
 </header>
 <main>
 	{#if currentMatchup}
@@ -73,12 +78,21 @@
 <style lang="postcss">
 
 	header {
-		@apply text-6xl lg:text-9xl font-black text-gray-500 italic text-center uppercase;
+		@apply text-gray-500 text-center mb-8 text-lg;
+	
+	}
+	
+	h1 {
+		@apply text-6xl lg:text-9xl font-black italic uppercase;
 	
 	}
 
+	header p {
+		@apply max-w-[50ch] mx-auto;
+	}
+
 	form div {
-		@apply flex flex-col justify-center items-center gap-4 lg:flex-row;
+		@apply flex flex-col justify-center items-center gap-4 lg:gap-10 lg:flex-row pb-16;
 	}
 
 	.vs {

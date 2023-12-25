@@ -18,14 +18,14 @@
                 {fuzzyNumber(tweet.favorite_count)}
             </span>
         </div>
-        <p class="tweet__date">
+        <a class="tweet__date" href="https://twitter.com/i/web/status/{tweet.tweet_id_str}">
             {formatTweetDate(tweet.created_at)}
-        </p>
+        </a>
     </footer>
 
 <style lang="postcss">
 	.tweet__footer {
-		@apply text-sm text-gray-500 px-4;
+		@apply text-sm text-gray-500 px-4 flex justify-between items-center;
 	}
 
     .tweet__engagement {

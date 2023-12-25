@@ -1,23 +1,23 @@
 <script lang="ts">
 	import { cleanFullText } from "../TweetCardUtils";
-    import type { TweetData } from "../TweetData";
-    export let tweet: TweetData;
+	import type { TweetData } from "../TweetData";
+	export let tweet: TweetData;
 </script>
 
 <main class="tweet__content">
-    <p class="tweet__text">{cleanFullText(tweet.full_text)}</p>
-    {#if tweet.tweet_media.length > 0}
-        <div class="tweet__media">
-            {#each tweet.tweet_media as media}
-                <img
-                    class="tweet__media-image"
-                    src={media.media_url_https}
-                    alt={media.alt_text ?? ""}
-                    width="100%"
-                />
-            {/each}
-        </div>
-    {/if}
+	<p class="tweet__text">{@html cleanFullText(tweet.full_text)}</p>
+	{#if tweet.tweet_media.length > 0}
+		<div class="tweet__media">
+			{#each tweet.tweet_media as media}
+            <img
+            class="tweet__media-image"
+            src={media.media_url_https}
+            alt={media.alt_text ?? ""}
+            width="100%"
+            />
+			{/each}
+		</div>
+	{/if}
 </main>
 
 <style lang="postcss">
@@ -29,13 +29,12 @@
 		@apply text-base lg:text-lg mb-1.5 px-4 whitespace-pre-line;
 	}
 
-    .tweet__media {
-        @apply flex overflow-x-scroll gap-2 ps-4;
-        scroll-snap-type: x mandatory;
-    }
+	.tweet__media {
+		@apply flex overflow-x-scroll gap-2 px-4;
+		scroll-snap-type: x mandatory;
+	}
 
 	.tweet__media .tweet__media-image {
-		@apply max-h-64 md:max-h-[430px] object-contain border border-black border-opacity-15 rounded-md;
+		@apply h-64 md:h-[430px] object-cover border border-black border-opacity-15 rounded-md;
 	}
 </style>
-
