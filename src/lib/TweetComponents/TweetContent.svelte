@@ -9,12 +9,14 @@
 	{#if tweet.tweet_media.length > 0}
 		<div class="tweet__media">
 			{#each tweet.tweet_media as media}
-            <img
-            class="tweet__media-image"
-            src={media.media_url_https}
-            alt={media.alt_text ?? ""}
-            width="100%"
-            />
+				<a href={media.media_url_https} target="_blank">
+					<img
+						class="tweet__media-image"
+						src={media.media_url_https}
+						alt={media.alt_text ?? ""}
+						width="100%"
+					/>
+				</a>
 			{/each}
 		</div>
 	{/if}
