@@ -76,14 +76,15 @@
 	</main>
     <footer>
 		<p>Tweets collected by <a href="https://www.theverge.com/c/features/23928461/best-tweets-archive-twitter-x-funny">The Verge</a>. At the end of this experiment, on January 1, 2024, I will redirect this domain to the winning tweet.</p>
+		<p>Note: videos, quote tweets, and the tweets being replied to are not visible. Click the datestamp to view the tweet on Twitter.</p>
 		<p>A web experiment conducted by <a href="https://samhenri.gold" target="_blank">Sam Henri Gold</a>.</p>
 	</footer>
 </div>
 
 <style lang="postcss">
-
 	div header {
 		@apply text-blue-500 mb-8 md:text-lg text-center;
+		text-wrap: balance;
 	
 	}
 	
