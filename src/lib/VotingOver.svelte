@@ -29,7 +29,7 @@
 <div class="flex flex-col items-center p-8 gap-12">
     <header>
         <h2>The search for <strong>The Best Tweet</strong> has ended.</h2>
-        <p>I (Sam) got lazy and didn’t automate this part. I need to look at the database and update this web app.</p>
+        <p>I (<a href="https://samhenri.gold">Sam</a>) got lazy and didn’t automate this part. I need to look at the database and update this web app.</p>
         <p>Check back when I wake up at about 8:30 AM.</p>
         <p>Thank you for participating!</p>
     </header>
