@@ -59,7 +59,6 @@
 		<h1>The Best Tweet</h1>
 		<p>We are not trying to find the most popular tweet. We are just trying to find, objectively, the <strong>best tweet of all time</strong>.</p>
 		<Countdown />
-		<p>{$countdownStore.diff}</p>
 	</header>
     <main class="flex-grow">
 	{#if currentMatchup}
