@@ -2,6 +2,7 @@
 	import { onMount } from "svelte";
 	import Tweet from "./lib/Tweet.svelte";
 	import type { Matchup, VoteRequestBody } from "./lib/EndpointTypes";
+	import Countdown from "./lib/Countdown.svelte";
 
 	let currentMatchup: Matchup;
 	let selectedTweetId: string;
@@ -48,6 +49,7 @@
 	<header>
 		<h1>The Best Tweet</h1>
 		<p>We are not trying to find the most popular tweet. We are just trying to find, objectively, the <strong>best tweet of all time</strong>.</p>
+		<Countdown />
 	</header>
     <main class="flex-grow">
 	{#if currentMatchup}
