@@ -52,13 +52,14 @@
 
 <div class="flex flex-col min-h-screen">
 	<!-- if (diff <= 0) show an h1 instead "Voting is over" -->
-	{#if diff <= 0}
+	{#if $countdownStore.diff <= 0}
 		<VotingOver />
 	{:else}
 	<header>
 		<h1>The Best Tweet</h1>
 		<p>We are not trying to find the most popular tweet. We are just trying to find, objectively, the <strong>best tweet of all time</strong>.</p>
 		<Countdown />
+		<p>{$countdownStore.diff}</p>
 	</header>
     <main class="flex-grow">
 	{#if currentMatchup}
