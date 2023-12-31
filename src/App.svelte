@@ -3,6 +3,11 @@
 	import Tweet from "./lib/Tweet.svelte";
 	import type { Matchup, VoteRequestBody } from "./lib/EndpointTypes";
 	import Countdown from "./lib/Countdown.svelte";
+	import { countdownStore } from './lib/countdownStore';
+	import VotingOver from "./lib/VotingOver.svelte";
+
+	// Get the diff in countdownStore
+	const { diff } = $countdownStore;
 
 	let currentMatchup: Matchup;
 	let selectedTweetId: string;
@@ -46,6 +51,10 @@
 </script>
 
 <div class="flex flex-col min-h-screen">
+	<!-- if (diff <= 0) show an h1 instead "Voting is over" -->
+	{#if diff <= 0}
+		<VotingOver />
+	{:else}
 	<header>
 		<h1>The Best Tweet</h1>
 		<p>We are not trying to find the most popular tweet. We are just trying to find, objectively, the <strong>best tweet of all time</strong>.</p>
@@ -82,6 +91,7 @@
 		<p>Note: quote tweets and the tweets being replied to are not visible. Click the datestamp to view the tweet on Twitter.</p>
 		<p>A web experiment conducted by <a href="https://samhenri.gold" target="_blank">Sam Henri Gold</a>.</p>
 	</footer>
+	{/if}
 </div>
 
 <style lang="postcss">
