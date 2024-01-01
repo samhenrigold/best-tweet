@@ -80,7 +80,7 @@ body > footer > p:last-of-type {
 .twitter-tweet .rank {
     /* Center at top of card */
     position: absolute;
-    top: calc(-1 * var(--space-2xs));
+    top: calc(-1 * var(--space-xs));
     left: 50%;
     transform: translateX(-50%);
 
@@ -95,10 +95,12 @@ body > footer > p:last-of-type {
     font-weight: 500;
     font-variant: all-small-caps;
     white-space: nowrap;
+    line-height: 1.15rem;
 }
 
 .twitter-tweet .rank sup {
     vertical-align: top;
+    font-weight: 550;
 }
 
 /* Tweet: Header */
@@ -175,7 +177,7 @@ body > footer > p:last-of-type {
 }
 
 .twitter-tweet footer a time {
-    text-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .twitter-tweet footer a time.short {
@@ -205,6 +207,15 @@ body > footer > p:last-of-type {
     .twitter-tweet footer a time.long {
         display: none;
     }
+
+    .twitter-tweet footer .engagement-counter {
+        margin-inline-end: var(--space-3xs);
+    }
+
+    .twitter-tweet footer .engagement-counter:last-of-type {
+        margin-inline-end: 0;
+    }
+    
 }
 
 @media (max-width: 359px) {
