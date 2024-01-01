@@ -10,7 +10,7 @@
         profile_image_url_https: "https://pbs.twimg.com/profile_images/1649213569999818752/7xsxQv4__400x400.jpg",
     };
 
-    const placeholderTweet: TweetData = {
+    const winningTweet: TweetData = {
         lang: "en",
         users: winningUser,
         user_id: 218166083,
@@ -35,7 +35,7 @@
     
     <main>
         <article>
-            <Tweet tweet={placeholderTweet} selected={false}/>
+            <Tweet tweet={winningTweet} selected={false}/>
             <figure class="badge" data-ranking="1" aria-label="First Place Winner">
                 <h3>#1</h3>
                 <small>55 votes</small>
