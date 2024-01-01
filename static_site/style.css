@@ -1,0 +1,245 @@
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+    --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+    --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+    --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+    --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+    --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+    --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+    --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+    --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+    --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+
+    --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+    --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+    --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+    --step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+    --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+    --step-3: clamp(1.9438rem, 1.7707rem + 0.8652vw, 2.4413rem);
+    --step-4: clamp(2.3325rem, 2.0823rem + 1.2511vw, 3.0519rem);
+    --step-5: clamp(2.7994rem, 2.4461rem + 1.7663vw, 3.815rem);
+
+    --system-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    --secondary-opacity: 0.6;
+
+    --gold-color-base: 44, 76%, 48%;
+    --gold-color: hsla(var(--gold-color-base), 1);
+    --gold-color-secondary: hsla(var(--gold-color-base), 0.15);
+
+    color-scheme: light dark;
+}
+
+/* Outer shell */
+body {
+    font-family: var(--system-font-family);
+    max-width: 70ch;
+    margin: 0 auto;
+    padding: var(--space-m);
+}
+
+h1 {
+    text-wrap: balance;
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+body > footer {
+    margin-top: var(--space-xl);
+}
+
+dl {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xs);
+    margin: var(--space-m) 0;
+}
+
+dt {
+    font-weight: bold;
+}
+
+body > footer > p:last-of-type {
+    margin-bottom: 0;
+    font-size: var(--step-3);
+    text-align: center;
+    opacity: 0.3;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Tweet: Card */
+.twitter-tweet {
+    padding: var(--space-s);
+    border: 2pt solid #e6ecf0;
+    border-radius: var(--space-s);
+    margin: var(--space-m);
+    position: relative;
+}
+
+/* Tweet: Rank */
+.twitter-tweet .rank {
+    /* Center at top of card */
+    position: absolute;
+    top: calc(-1 * var(--space-2xs));
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* Rank Shape */
+    display: block;
+    background: #e6ecf0;
+    padding: calc(var(--space-3xs) * 0.5) var(--space-xs);
+    border-radius: var(--space-3xs);
+
+    /* Typography */
+    font-size: var(--step--1);
+    font-weight: 500;
+    font-variant: all-small-caps;
+    white-space: nowrap;
+}
+
+.twitter-tweet .rank sup {
+    vertical-align: top;
+}
+
+/* Tweet: Header */
+.twitter-tweet header {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--space-s);
+    gap: var(--space-2xs);
+}
+
+.twitter-tweet header img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
+.twitter-tweet cite {
+    display: inline-block;
+    /* truncate, don't wrap */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.twitter-tweet cite * {
+    margin: 0;
+    font-style: normal;
+}
+
+.twitter-tweet cite p:first-of-type {
+    margin-bottom: var(--space-3xs);
+}
+
+.twitter-tweet cite p:last-of-type {
+    opacity: var(--secondary-opacity);
+}
+
+/* Tweet: Body */
+.twitter-tweet > p {
+    font-size: var(--step-0);
+    margin: 0;
+    /* allow hyphenating */
+    hyphens: auto;
+}
+
+.twitter-tweet hr {
+    margin: var(--space-s) 0;
+    border: none;
+    border-top: 1pt solid #e6ecf0;
+}
+
+/* Tweet: Footer */
+.twitter-tweet footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.twitter-tweet footer .engagement-counter--container {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.twitter-tweet footer .engagement-counter {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-3xs);
+    margin-inline-end: var(--space-s);
+    opacity: var(--secondary-opacity);
+}
+
+.twitter-tweet footer a time {
+    text-wrap: nowrap;
+}
+
+.twitter-tweet footer a time.short {
+    display: none;
+}
+
+/* Tweet: Rank Customizations */
+.twitter-tweet[data-rank="1"] {
+    border: 2pt solid var(--gold-color);
+    background-color: var(--gold-color-secondary);
+}
+
+.twitter-tweet[data-rank="1"] hr {
+    border-top: 1pt solid var(--gold-color);
+}
+
+.twitter-tweet[data-rank="1"] .rank {
+    background: var(--gold-color);
+}
+
+/* Media Queries */
+@media (max-width: 511px) {
+    .twitter-tweet footer a time.short {
+        display: inline;
+    }
+
+    .twitter-tweet footer a time.long {
+        display: none;
+    }
+}
+
+@media (max-width: 359px) {
+    body {
+        padding: var(--space-3xs);
+    }
+
+    .twitter-tweet {
+        padding: var(--space-xs);
+    }
+
+    .twitter-tweet header img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .twitter-tweet cite p:first-of-type {
+        margin-bottom: 0;
+    }
+
+    .twitter-tweet cite p:last-of-type {
+        font-size: 0.9rem;
+    }
+
+    .engagement-counter--container {
+        display: none;
+    }
+
+    .twitter-tweet footer a time.short {
+        display: none;
+    }
+
+    .twitter-tweet footer a time.long {
+        display: inline;
+    }
+}
