@@ -51,47 +51,7 @@
 </script>
 
 <div class="flex flex-col min-h-screen">
-	<!-- if (diff <= 0) show an h1 instead "Voting is over" -->
-	{#if $countdownStore.diff <= 0}
-		<VotingOver />
-	{:else}
-	<header>
-		<h1>The Best Tweet</h1>
-		<p>We are not trying to find the most popular tweet. We are just trying to find, objectively, the <strong>best tweet of all time</strong>.</p>
-		<Countdown />
-	</header>
-    <main class="flex-grow">
-	{#if currentMatchup}
-		<form on:submit={handleVote} on:change={handleVote}>
-			<div>
-				<label>
-					<Tweet tweet={currentMatchup.tweet_1} selected={selectedTweetId === currentMatchup.tweet_1.tweet_id_str} />
-					<input
-						type="radio"
-						bind:group={selectedTweetId}
-						value={currentMatchup.tweet_1.tweet_id_str}
-					/>
-				</label>
-				<span class="vs" aria-label="versus">VS</span>
-				<label>
-					<Tweet tweet={currentMatchup.tweet_2} selected={selectedTweetId === currentMatchup.tweet_2.tweet_id_str} />
-					<input
-						type="radio"
-						bind:group={selectedTweetId}
-						value={currentMatchup.tweet_2.tweet_id_str}
-					/>
-				</label>
-			</div>
-			<button type="button" on:click={() => fetchMatchup()}>Both suck <span class="material-symbols-outlined">double_arrow</span></button>
-		</form>
-	{/if}
-	</main>
-    <footer>
-		<p>Tweets collected by <a href="https://www.theverge.com/c/features/23928461/best-tweets-archive-twitter-x-funny">The Verge</a>. At the end of this experiment, on January 1, 2024, I will redirect this domain to the winning tweet.</p>
-		<p>Note: quote tweets and the tweets being replied to are not visible. Click the datestamp to view the tweet on Twitter.</p>
-		<p>A web experiment conducted by <a href="https://samhenri.gold" target="_blank">Sam Henri Gold</a>.</p>
-	</footer>
-	{/if}
+	<VotingOver />
 </div>
 
 <style lang="postcss">
