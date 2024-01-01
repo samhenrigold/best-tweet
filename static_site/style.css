@@ -27,8 +27,6 @@
     --gold-color-base: 44, 76%, 48%;
     --gold-color: hsla(var(--gold-color-base), 1);
     --gold-color-secondary: hsla(var(--gold-color-base), 0.15);
-
-    color-scheme: light dark;
 }
 
 /* Outer shell */
